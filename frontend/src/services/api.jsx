@@ -1,5 +1,5 @@
 // API configuration
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 // Generic API request handler
 const apiRequest = async (url, options = {}) => {
@@ -81,38 +81,7 @@ export const reviewAPI = {
   },
 };
 
-// Auth API (assuming you have authentication)
-// export const authAPI = {
-//   // Get current user
-//   getCurrentUser: async () => {
-//     return apiRequest('/auth/me');
-//   },
 
-//   // Login
-//   login: async (credentials) => {
-//     return apiRequest('/auth/login', {
-//       method: 'POST',
-//       body: JSON.stringify(credentials),
-//     });
-//   },
-
-//   // Register
-//   register: async (userData) => {
-//     return apiRequest('/auth/register', {
-//       method: 'POST',
-//       body: JSON.stringify(userData),
-//     });
-//   },
-
-//   // Logout
-//   logout: async () => {
-//     return apiRequest('/auth/logout', {
-//       method: 'POST',
-//     });
-//   },
-// };
-
-// Utility function to handle API errors
 export const handleApiError = (error) => {
   console.error('API Error:', error);
   
